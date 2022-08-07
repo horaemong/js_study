@@ -1,0 +1,32 @@
+<script>
+    
+    var future_money = 0;
+    function future(first_money) {
+        if(first_money<50000 && first_money>0)
+        {
+            future_money += first_money*1.15;
+            future_money += future_money*0.15;
+            console.log(future_money);
+            future_money = 0;
+        }
+        else if(first_money>50000)
+        {
+            future_money += first_money*1.2;
+            future_money += future_money*0.2;
+            console.log(future_money);
+            future_money = 0;
+        }        
+    }
+
+
+    var first = 360;
+    function coffee(first) {
+        var final;
+        final = first/(1-(2/3));
+        console.log(final);
+    }
+
+
+
+
+</script>

@@ -69,6 +69,7 @@
   <button class="slide-1">1</button>
   <button class="slide-2">2</button>
   <button class="slide-3">3</button>
+  <BUtton class="next">다음</BUtton>
 
 
 
@@ -167,16 +168,35 @@
     }
     setInterval(hello, 1*sec);
 
-
+    var now_picture = 1;
     $('.slide-2').on('click', function(){
       $('.slide-container').css('transform', 'translateX(-100vw)');
+      now_picture = 2;
     })
     $('.slide-1').on('click', function(){
       $('.slide-container').css('transform', 'translateX(0vw)');
+      now_picture = 1;
     })
     $('.slide-3').on('click', function(){
       $('.slide-container').css('transform', 'translateX(-200vw)');
+      now_picture = 3;
     })
+
+    $('.next').on('click', function(){
+      if (now_picture == 1) {
+        $('.slide-container').css('transform', 'translateX(-100vw)');
+        now_picture = 2;
+      }
+      else if (now_picture == 2) {
+        $('.slide-container').css('transform', 'translateX(-200vw)');
+      now_picture = 3;
+      }
+      else if (now_picture == 3) {
+        $('.slide-container').css('transform', 'translateX(0vw)');
+      now_picture = 1;
+      }
+    })
+
   </script>
 
 </body>

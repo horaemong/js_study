@@ -48,7 +48,7 @@
   </ul>
   <button id="login">로그인</button>
 
-  <div class = "alert alert-danger">
+  <div class="alert alert-danger">
     5초 이내 구매시 사은품 증정!
   </div>
 
@@ -72,6 +72,12 @@
   <bUtton class="next">다음</bUtton>
   <button class="previous">이전</button>
 
+
+  <div class="lorem my-5" style="width: 200px; height: 100px; overflow-y: scroll">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis
+    at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium
+    exercitationem.
+  </div>
   <div style="height: 1000px"></div>
 
 
@@ -101,22 +107,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-
     const sec = 1000;
 
     var click_number = 0;
     $('.badge').on('click', function () {
-      click_number +=1;
-      if(click_number%2 ==0)
-      {
+      click_number += 1;
+      if (click_number % 2 == 0) {
         $('.badge').html('Dark 🔄')
         $('body').removeClass("dark")
-      }
-      else
-      {
+      } else {
         $('.badge').html('Light 🔄')
         $('body').addClass("dark")
       }
@@ -148,71 +150,89 @@
       if (document.getElementById('password').value.length == 0) {
         alert('비밀번호 입력안함')
         e.preventDefault();
-      }
-      else if (document.getElementById('password').value.length < 6) {
+      } else if (document.getElementById('password').value.length < 6) {
         alert('비밀번호가 짧음');
         e.preventDefault();
       }
     });
 
-    setTimeout(function(){ 
+    setTimeout(function () {
       $('.alert').hide();
-    }, 5*sec);
+    }, 5 * sec);
     // setInterval(function(){
     //   console.log('hello');
     // }, 1*sec);
 
     var n = 4;
+
     function hello() {
-      $('.alert').html(n+'초 이내 구매시 사은품 증정!')
-      n-= 1;
+      $('.alert').html(n + '초 이내 구매시 사은품 증정!')
+      n -= 1;
     }
-    setInterval(hello, 1*sec);
+    setInterval(hello, 1 * sec);
 
     var now_picture = 1;
-    $('.slide-2').on('click', function(){
+    $('.slide-2').on('click', function () {
       $('.slide-container').css('transform', 'translateX(-100vw)');
       now_picture = 2;
     })
-    $('.slide-1').on('click', function(){
+    $('.slide-1').on('click', function () {
       $('.slide-container').css('transform', 'translateX(0vw)');
       now_picture = 1;
     })
-    $('.slide-3').on('click', function(){
+    $('.slide-3').on('click', function () {
       $('.slide-container').css('transform', 'translateX(-200vw)');
       now_picture = 3;
     })
 
-    $('.next').on('click', function(){
+    $('.next').on('click', function () {
       if (now_picture == 1) {
         $('.slide-container').css('transform', 'translateX(-100vw)');
         now_picture = 2;
-      }
-      else if (now_picture == 2) {
+      } else if (now_picture == 2) {
         $('.slide-container').css('transform', 'translateX(-200vw)');
-      now_picture = 3;
-      }
-      else if (now_picture == 3) {
+        now_picture = 3;
+      } else if (now_picture == 3) {
         $('.slide-container').css('transform', 'translateX(0vw)');
-      now_picture = 1;
+        now_picture = 1;
       }
     })
-    $('.previous').on('click', function(){
+    $('.previous').on('click', function () {
       if (now_picture == 1) {
         $('.slide-container').css('transform', 'translateX(-200vw)');
         now_picture = 3;
-      }
-      else if (now_picture == 2) {
+      } else if (now_picture == 2) {
         $('.slide-container').css('transform', 'translateX(0vw)');
-      now_picture = 1;
-      }
-      else if (now_picture == 3) {
+        now_picture = 1;
+      } else if (now_picture == 3) {
         $('.slide-container').css('transform', 'translateX(-100vw)');
-      now_picture = 2;
+        now_picture = 2;
       }
     })
 
+    window.addEventListener('scroll', function () {
+      var window_scroll = window.scrollY
+      console.log(scroll)
+      if (window_scroll > 100) {
+        $('.navbar').addClass('fixed')
+        $('.navbar-brand').css('font-size', '15px')
+      } else {
+        $('.navbar').removeClass('fixed')
+        $('.navbar-brand').css('font-size', '30px')
+      }
+    });
 
+    $('.lorem').on('scroll', function () {
+      var div_scroll = document.querySelector('.lorem').scrollTop;
+      var div_real_height = document.querySelector('.lorem').scrollHeight;
+      var div_see_height = document.querySelector('.lorem').clientHeight;
+      var a = false;
+      if(div_scroll+div_see_height >= div_real_height-10 && a == false){
+        a = true
+        alert("다 읽음?")
+
+      }
+    });
   </script>
 
 </body>

@@ -88,10 +88,13 @@
 }
 
 .navbar{
-  position: fixed;
   width: 100%;
-  z-index: 5;
+  z-index: 4;
 }
 .navbar-brand{
   font-size: 30px;
+
+}
+.fixed{
+  position: fixed;
 }

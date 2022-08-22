@@ -1,100 +1,154 @@
 .list-group {
-  display : none
+  display: none
 }
+
 .show {
-  display : block
+  display: block
 }
+
 .black-bg {
-  width : 100%;
-  height : 100%;
-  position : fixed;
-  background : rgba(0,0,0,0.5);
-  z-index : 5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
   padding: 30px;
-  transition : all 1s;
-  visibility : hidden;
-  opacity : 0;
+  transition: all 1s;
+  visibility: hidden;
+  opacity: 0;
 
 
 }
+
 .white-bg {
   background: white;
   border-radius: 5px;
   padding: 30px;
-  display : block;
+  display: block;
 
-} 
-.show-modal {
-  visibility : visible;
-  opacity : 1;
 }
 
-.dark
-{
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dark {
   background: black;
   color: white;
 }
 
-.slide-container
-{
+.slide-container {
   width: 300vw;
   transition: all 1s;
 
 }
 
-.slide-box
-{
+.slide-box {
   width: 100vw;
   float: left;
 }
-.slide-box img{
+
+.slide-box img {
   width: 100%;
 }
+
 .list-group {
-  display : none
+  display: none
 }
+
 .show {
-  display : block
+  display: block
 }
+
 .black-bg {
-  width : 100%;
-  height : 100%;
-  position : fixed;
-  background : rgba(0,0,0,0.5);
-  z-index : 5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
   padding: 30px;
 
-  visibility : hidden;
-  opacity : 0;
-  transition : all 1s;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
 
 }
+
 .white-bg {
   background: white;
   border-radius: 5px;
   padding: 30px;
-  display : block;
+  display: block;
 
-} 
-.show-modal {
-  visibility : visible;
-  opacity : 1;
 }
 
-.dark
-{
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dark {
   background: black;
   color: white;
 }
 
-.navbar{
+.navbar {
   width: 100%;
   z-index: 4;
 }
-.navbar-brand{
+
+.navbar-brand {
   font-size: 30px;
 
 }
-.fixed{
+
+.fixed {
   position: fixed;
+}
+
+ul.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+ul.list::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.tab-button {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  float: left;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.orange {
+  border-top: 2px solid orange;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #ccc;
+  color: black;
+  margin-top: -2px;
+}
+
+.tab-content {
+  display: none;
+  padding: 10px;
+}
+
+.show {
+  display: block;
+}
+
+.form-hide{
+  display: none;
 }

@@ -72,6 +72,42 @@
   <bUtton class="next">다음</bUtton>
   <button class="previous">이전</button>
 
+  <div class="container mt-5">
+    <ul class="list">
+      <li class="tab-button">Products</li>
+      <li class="tab-button orange">Information</li>
+      <li class="tab-button">Shipping</li>
+    </ul>
+    <div class="tab-content">
+      <p>상품설명입니다. Product</p>
+    </div>
+    <div class="tab-content show">
+      <p>스펙설명입니다. Information</p>
+    </div>
+    <div class="tab-content">
+      <p>배송정보입니다. Shipping</p>
+    </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="card p-3">
+      <span class="product">상품명</span>
+      <span class="price">가격</span>
+    </div>
+  </div>
+
+  <form class="container my-5 form-group">
+    <p>상품선택</p>
+    <select class="form-select mt-2">
+      <option>모자</option>
+      <option>셔츠</option>
+      <option>바지</option>
+    </select>
+    <select class="form-select mt-2 form-hide">
+      <option>95</option>
+      <option>100</option>
+    </select>
+  </form>
 
   <div class="lorem my-5" style="width: 200px; height: 100px; overflow-y: scroll">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis
@@ -79,6 +115,10 @@
     exercitationem.
   </div>
   <div style="height: 1000px"></div>
+
+
+
+
 
 
 
@@ -227,20 +267,63 @@
       var div_real_height = document.querySelector('.lorem').scrollHeight;
       var div_see_height = document.querySelector('.lorem').clientHeight;
       var a = false;
-      if(div_scroll+div_see_height >= div_real_height-10 && a == false){
+      if (div_scroll + div_see_height >= div_real_height - 10 && a == false) {
         a = true
         alert("다 읽음?")
 
       }
     });
 
-    $('.black-bg').on('click', function(e){
-      
-      if (e.target == document.querySelector(".black-bg")) 
-      {
+    $('.black-bg').on('click', function (e) {
+
+      if (e.target == document.querySelector(".black-bg")) {
         $(".black-bg").removeClass('show-modal');
       }
 
+
+    });
+
+
+    for (let i = 0; i < $('.tab-button').length; i++) {
+
+      $('.tab-button').eq(i).on('click', function () {
+        $('.tab-button').removeClass('orange');
+        $('.tab-button').eq(i).addClass('orange');
+        $('.tab-content').removeClass('show');
+        $('.tab-content').eq(i).addClass('show');
+      })
+    };
+
+    var car2 = { name: '소나타', price: 50000 }
+    $('.product').html(car2['name'])
+    $('.price').html(car2['price'])
+
+    $('.form-select').eq(0).on('input', function () {
+      var value = $('.form-select').eq(0).val();
+      if (value == '셔츠') {
+        $('.form-select').eq(1).removeClass('form-hide');
+      }
+    });
+
+    $('.form-select').eq(0).on('input', function () {
+      var value = $('.form-select').eq(0).val();
+      if (value == '모자') {
+        $('.form-select').eq(1).addClass('form-hide');
+      }
+    });
+
+    $('.form-select').eq(0).on('input', function () {
+
+      var value = $('.form-select').eq(0).val();
+      if (value == '셔츠') {
+        $('.form-select').eq(1).removeClass('form-hide');
+      }
+      else if (value == '바지') {
+        $('.form-select').eq(1).removeClass('form-hide');
+        $('.form-select').eq(1).html('');
+        var 템플릿 = `<option>28</option><option>30</option>`;
+        $('.form-select').eq(1).append(템플릿)
+      }
 
     });
   </script>

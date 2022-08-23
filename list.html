@@ -11,33 +11,32 @@
 </head>
 
 <body>
+    <div class="card-group container mx-1 my-1 justify-content-end">
+        <div class="mx-1 my-1">
+            <button class="btn btn-danger" id="reverse_sort">상품명 다나가순 정렬</button>
+        </div>
+        <div class="mx-1 my-1">
+            <button class="btn btn-danger" id="price_sort">6만원 이하 상품보기</button>
+        </div>
+    </div>
+    
     <div class="card-group container">
-        <div class="card">
-            <img src="https://via.placeholder.com/600">
-            <div class="card-body">
-                <h5 class="card_title">Card title</h5>
-                <p class="price">가격 : 70000</p>
-                <button class="btn btn-danger">주문하기</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/600">
-            <div class="card-body">
-                <h5 class="card_title">Card title</h5>
-                <p class="price">가격 : 70000</p>
-                <button class="btn btn-danger">주문하기</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/600">
-            <div class="card-body">
-                <h5 class="card_title">Card title</h5>
-                <p class="price">가격 : 70000</p>
-                <button class="btn btn-danger">주문하기</button>
+        <div class="container">
+            <div class="row">
+
+
+
             </div>
         </div>
     </div>
 
+    <div class="container">
+        <button class="btn btn-danger" id="more">더보기</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         var products = [
@@ -46,12 +45,65 @@
             { id: 2, price: 60000, title: 'Black Monastery' }
         ];
 
-        for (let i = 0; i < products.length; i++) {
+        var templet = '<div class="col-sm-4">\n' +
+            '<img src="https://via.placeholder.com/600" class="w-100">\n' +
+            '<h5 class="card_title">Card title</h5>\n' +
+            '<p class="price">가격 : 70000</p>\n' +
+            '</div>\n'
 
-            document.querySelectorAll('.card_title')[i].innerHTML = products[i].title;
-            document.querySelectorAll('.price')[i].innerHTML = products[i].price;
+        for (var key in products) {
+            console.log(products[key].price);
 
+            var templet = '<div class="col-sm-4">\n' +
+                '<img src="https://via.placeholder.com/600" class="w-100">\n' +
+                `<h5 class="card_title">${products[key].title}</h5>\n` +
+                `<p class="price">가격 : ${products[key].price}</p>\n` +
+                '</div>\n'
+
+            $('.row').append(templet);
         }
+
+        $('#more').click(function () {
+            $.get('https://codingapple1.github.io/js/more1.json')
+                .done((data) => {
+                    console.log(data)
+                });
+        });
+
+        $('#')
+
+        // for (let i = 0; i < products.length; i++) {
+
+        //     document.querySelectorAll('.card_title')[i].innerHTML = products[i].title;
+        //     document.querySelectorAll('.price')[i].innerHTML = products[i].price;
+
+        // }
+
+        var count = 0;
+        $('#more').click(function () {
+            if (count <= 1) {
+                count +=1;
+                $.get(`https://codingapple1.github.io/js/more${count}.json`)
+                    .done((data) => {
+
+                        data.forEach((a, i) => {
+                            var 템플릿 =
+                                `<div class="col-sm-4">
+                                    <img src="https://via.placeholder.com/600" class="w-100">
+                                    <h5>${data[i].title}</h5>
+                                    <p>가격 : ${data[i].price}</p>
+                                </div>`;
+                            $('.row').append(템플릿);
+                        })
+
+                    });
+            }
+            else 
+            {
+                
+            }
+
+        });
     </script>
 
 

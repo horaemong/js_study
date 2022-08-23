@@ -328,7 +328,7 @@
     //   }
     // });
 
-    var shirts = [95, 100, 105] 
+    var shirts = [95, 100, 105]
     var pants = [28, 30, 32];
     $('.form-select').eq(0).on('input', function () {
       var value = $('.form-select').eq(0).val();
@@ -347,6 +347,11 @@
         })
       }
     });
+
+    $.get('https://codingapple1.github.io/hello.txt').done(function (data) {
+      console.log(data)
+    });
+
   </script>
 
 </body>

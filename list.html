@@ -25,7 +25,6 @@
             <div class="row">
 
 
-
             </div>
         </div>
     </div>
@@ -45,11 +44,7 @@
             { id: 2, price: 60000, title: 'Black Monastery' }
         ];
 
-        var templet = '<div class="col-sm-4">\n' +
-            '<img src="https://via.placeholder.com/600" class="w-100">\n' +
-            '<h5 class="card_title">Card title</h5>\n' +
-            '<p class="price">가격 : 70000</p>\n' +
-            '</div>\n'
+
 
         for (var key in products) {
             console.log(products[key].price);
@@ -58,6 +53,7 @@
                 '<img src="https://via.placeholder.com/600" class="w-100">\n' +
                 `<h5 class="card_title">${products[key].title}</h5>\n` +
                 `<p class="price">가격 : ${products[key].price}</p>\n` +
+                '<button class = "purchase">구매</button>\n' +
                 '</div>\n'
 
             $('.row').append(templet);
@@ -92,6 +88,7 @@
                                     <img src="https://via.placeholder.com/600" class="w-100">
                                     <h5>${data[i].title}</h5>
                                     <p>가격 : ${data[i].price}</p>
+                                    <button class = "purchase">구매</button>
                                 </div>`;
                             $('.row').append(템플릿);
                         })
@@ -104,12 +101,32 @@
 
         });
         $('#reverse_sort').click(function () {
-            for (let i = 0; i < count+1; i++) {
-                
-                
+            for (let i = 0; i < count + 1; i++) {
+
+
             }
-            
-        })
+
+        });
+
+        $(document).on('click', '.purchase', function (e) {
+            var purchase = e.target;
+            console.log(purchase);
+            price = purchase.previousElementSibling.innerHTML;
+            name = purchase.previousElementSibling.previousElementSibling.innerHTML;
+
+            if (localStorage.getItem('cart') != null) {
+                var get = JSON.parse(localStorage.cart);
+                get.push([name,price]);
+                localStorage.setItem('cart', JSON.stringify(get));
+            }
+            else {
+                localStorage.setItem('cart', JSON.stringify([[name,price]]))
+            }
+
+        
+
+        });
+
     </script>
 
 

@@ -19,7 +19,7 @@
             <button class="btn btn-danger" id="price_sort">6만원 이하 상품보기</button>
         </div>
     </div>
-    
+
     <div class="card-group container">
         <div class="container">
             <div class="row">
@@ -70,7 +70,7 @@
                 });
         });
 
-        $('#')
+
 
         // for (let i = 0; i < products.length; i++) {
 
@@ -82,7 +82,7 @@
         var count = 0;
         $('#more').click(function () {
             if (count <= 1) {
-                count +=1;
+                count += 1;
                 $.get(`https://codingapple1.github.io/js/more${count}.json`)
                     .done((data) => {
 
@@ -98,12 +98,18 @@
 
                     });
             }
-            else 
-            {
-                
+            else {
+
             }
 
         });
+        $('#reverse_sort').click(function () {
+            for (let i = 0; i < count+1; i++) {
+                
+                
+            }
+            
+        })
     </script>
 
 
